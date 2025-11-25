@@ -1,0 +1,42 @@
+mcdp {
+    provides customer_approval [dimensionless]
+    provides tariff_practicality [dimensionless]
+    provides recovery_rate [dimensionless]
+
+    requires xsubsidy_A [USD]
+    requires xsubsidy_B [USD]
+
+    practicality = instance `practicality
+    approval = instance `approval
+    subsidy = instance `subsidy
+    tariff_eval = instance `tariff_eval
+    tariff_structure = instance `tariff_structure
+    cost_recovery = instance `cost_recovery
+    # fixed_cost_allocator = instance `fixed_cost_allocator
+
+    # tariff_eval block
+    tariff provided by tariff_eval >= tariff required by tariff_structure
+
+    # practicality block
+    provided tariff_practicality <= tariff_practicality provided by practicality
+    n_tiers_A required by practicality <= n_tiers_A provided by tariff_structure
+    n_tiers_B required by practicality <= n_tiers_B provided by tariff_structure
+
+    # approval block
+    provided customer_approval <= customer_approval provided by approval
+    revenue_A required by approval <= revenue_A required by tariff_eval
+    revenue_B required by approval <= revenue_B required by tariff_eval
+
+    # tariff_eval block
+
+    # subsidy block
+
+
+    # cost_recovery block
+    provided recovery_rate <= recovery_rate provided by cost_recovery
+
+    # fixed cost allocations block
+
+    # tariff_structure block
+    # all defined above
+}

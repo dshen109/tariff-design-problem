@@ -1,0 +1,9 @@
+mcdp {
+    provides [`tariff]
+
+    requires complexity_A [Nat]
+    requires complexity_B [Nat]
+
+    implemented by yaml resource("tariff_menu.dpc.yaml")
+
+}

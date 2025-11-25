@@ -1,0 +1,41 @@
+mcdp {
+    provides recovery_rate [dimensionless]
+    provides fixed_costs [dimensionless]
+
+    requires xsubsidy [USD]
+    requires disapproval [dimensionless]
+
+    perception = instance `perception
+    cost_recovery = instance `cost_recovery
+    billing = instance `billing
+    tariff_menu = instance `tariff_menu
+    subsidy = instance `subsidy
+
+    # perception block
+    revenue_A provided by perception <= revenue_A provided by billing
+    revenue_B provided by perception <= revenue_B provided by billing
+    complexity_A provided by perception >= complexity_A required by tariff_menu
+    complexity_B provided by perception >= complexity_B required by tariff_menu
+
+    disapproval required by perception <= provided disapproval
+
+    # tariff_menu block
+    tariff provided by tariff_menu >= tariff required by billing
+
+    # subsidy block
+    required xsubsidy <= xsubsidy provided by subsidy
+    provided cost_fixed <= cost_fixed provided by subsidy
+    fixedfracA provided by subsidy >= fixedfracA required by billing
+    cost_energyB provided by subsidy >= cost_energyB required by billing
+
+    # cost recovery
+    provided recovery_rate <= recovery_rate provided by cost_recovery
+    provided fixed_costs <= fixed_costs provided by cost_recovery
+    cost_energyA provided by cost_recovery >= cost_energyA required by billing
+    cost_energyB provided by cost_recovery >= cost_energyB required by billing
+    revenue_A required by cost_recovery <= revenue_A provided by billing
+    revenue_B required by cost_recovery <= revenue_B provided by billing
+
+    # billing block
+    # all connected
+}
