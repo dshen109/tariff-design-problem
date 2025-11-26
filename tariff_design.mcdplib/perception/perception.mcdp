@@ -1,15 +1,15 @@
 mcdp {
-    provides revenue_A [USD]
-    provides revenue_B [USD]
-    provides complexity_A [Nat]
-    provides complexity_B [Nat]
+    provides disapproval [dimensionless]
 
-    requires disapproval [dimensionless]
+    requires revenue_A [USD]
+    requires revenue_B [USD]
+    # provides complexity_A [Nat]
+    # provides complexity_B [Nat]
 
-    constant dollar_pain_A [1/USD] = 1
-    constant dollar_pain_B [1/USD] = 1
-    constant confusion_A [dimensionless] = 0.1
-    constant confusion_B [dimensionless] = 0.1
+    constant dollar_pain_A = 1 [1/USD]
+    constant dollar_pain_B = 1 [1/USD]
+    # constant confusion_A  = 0.1 [dimensionless]
+    # constant confusion_B = 0.1 [dimensionless]
 
-    required disapproval >= provided revenue_A * dollar_pain_A + provided revenue_B * dollar_pain_B + complexity_A * confusion_A + complexity_B * confusion_B
+    provided disapproval <= required revenue_A * dollar_pain_A + required revenue_B * dollar_pain_B
 }

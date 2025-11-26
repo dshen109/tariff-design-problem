@@ -1,9 +1,8 @@
-mcdp {
-    provides [`tariff]
+dp {
+    provides tariff [`tariff]
 
-    requires complexity_A [Nat]
-    requires complexity_B [Nat]
+    requires complexity_A [dimensionless]
+    requires complexity_B [dimensionless]
 
-    implemented by yaml resource("tariff_menu.dpc.yaml")
-
+    implemented-by yaml resource("tariff_menu.dpc.yaml")
 }

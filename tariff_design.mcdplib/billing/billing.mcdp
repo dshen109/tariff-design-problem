@@ -1,10 +1,10 @@
-mcdp {
+dp {
     provides revenue_A [USD]
     provides revenue_B [USD]
 
     requires tariff [`tariff]
-    requires cost_energyA [USD]
-    requires cost_energyB [USD]
+    requires cost_energy_A [USD]
+    requires cost_energy_B [USD]
     requires fixedfracA [dimensionless]
 
     implemented-by yaml resource("billing.dpc.yaml")

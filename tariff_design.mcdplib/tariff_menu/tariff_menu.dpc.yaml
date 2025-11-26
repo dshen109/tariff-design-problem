@@ -1,18 +1,18 @@
 F:
-  - `tariff
+  - '`tariff'
 R:
-  - Nat
-  - Nat
+  - dimensionless
+  - dimensionless
 implementations:
   a0101010101_10_b0202020202_20:
     f_max:
       - '`tariff: a0101010101_10_b0202020202_20'
     r_min:
-      - 1 Nat
-      - 1 Nat
+      - 1 dimensionless
+      - 1 dimensionless
   a0101010101_10_b0202020202_30:
     f_max:
       - '`tariff: a0101010101_10_b0202020202_30'
     r_min:
-      - 2 Nat
-      - 1 Nat
+      - 2 dimensionless
+      - 1 dimensionless

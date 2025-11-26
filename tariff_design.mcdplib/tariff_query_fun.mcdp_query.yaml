@@ -1,0 +1,14 @@
+title: tariff_query_fun
+description: Query the whole dp
+model: '`tariff_design'
+query:
+  query_type: FixFunMinRes
+  min_f:
+    recovery_rate: 0.001 dimensionless
+    fixed_costs: 10 USD
+    xsubsidy: 10 USD
+    disapproval: 1 dimensionless
+  max_r:
+    complexity: 10000 dimensionless
+  optimize_for:
+  - complexity

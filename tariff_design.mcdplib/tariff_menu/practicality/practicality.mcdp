@@ -1,0 +1,7 @@
+mcdp {
+    provides complexity_A [dimensionless]
+    provides complexity_B [dimensionless]
+    requires complexity [dimensionless]
+
+    required complexity >= provided complexity_A + provided complexity_B
+}

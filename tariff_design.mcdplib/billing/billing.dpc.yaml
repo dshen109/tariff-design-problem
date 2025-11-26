@@ -9,8 +9,8 @@ R:
 implementations:
   a0101010101_10_b0202020202_20:
     f_max:
-      - 1 Nat
-      - 1 Nat
+      - 1 USD
+      - 1 USD
     r_min:
       - '`tariff: a0101010101_10_b0202020202_20'
       - 1 USD
@@ -18,8 +18,8 @@ implementations:
       - 1 dimensionless
   a0101010101_10_b0202020202_30:
     f_max:
-      - 1 Nat
-      - 1 Nat
+      - 1 USD
+      - 1 USD
     r_min:
       - '`tariff: a0101010101_10_b0202020202_20'
       - 1 USD

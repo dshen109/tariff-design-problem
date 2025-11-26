@@ -1,42 +1,46 @@
 mcdp {
-    provides customer_approval [dimensionless]
-    provides tariff_practicality [dimensionless]
     provides recovery_rate [dimensionless]
+    provides fixed_costs [USD]
+    provides xsubsidy [USD]
+    provides disapproval [dimensionless]
 
-    requires xsubsidy_A [USD]
-    requires xsubsidy_B [USD]
+    requires complexity [dimensionless]
 
-    practicality = instance `practicality
-    approval = instance `approval
-    subsidy = instance `subsidy
-    tariff_eval = instance `tariff_eval
-    tariff_structure = instance `tariff_structure
+    perception = instance `perception
     cost_recovery = instance `cost_recovery
-    # fixed_cost_allocator = instance `fixed_cost_allocator
+    billing = instance `billing
+    tariff_menu = instance `tariff_menu
+    subsidy = instance `subsidy
+    practicality = instance `practicality
 
-    # tariff_eval block
-    tariff provided by tariff_eval >= tariff required by tariff_structure
+    # perception block
+    revenue_A required by perception <= revenue_A provided by billing
+    revenue_B required by perception <= revenue_B provided by billing
+    provided disapproval <= disapproval provided by perception
 
-    # practicality block
-    provided tariff_practicality <= tariff_practicality provided by practicality
-    n_tiers_A required by practicality <= n_tiers_A provided by tariff_structure
-    n_tiers_B required by practicality <= n_tiers_B provided by tariff_structure
-
-    # approval block
-    provided customer_approval <= customer_approval provided by approval
-    revenue_A required by approval <= revenue_A required by tariff_eval
-    revenue_B required by approval <= revenue_B required by tariff_eval
-
-    # tariff_eval block
+    # tariff_menu block
+    tariff provided by tariff_menu >= tariff required by billing
+    complexity_A required by tariff_menu <= complexity_A provided by practicality
+    complexity_B required by tariff_menu <= complexity_B provided by practicality
 
     # subsidy block
+    provided xsubsidy <= xsubsidy provided by subsidy
+    provided fixed_costs <= fixed_costs provided by subsidy
+    fixed_cost_frac provided by subsidy >= fixedfracA required by billing
+    purchase_cost provided by subsidy >= cost_energy_A required by billing
+    revenue required by subsidy <= revenue_A provided by billing
 
-
-    # cost_recovery block
+    # cost recovery
     provided recovery_rate <= recovery_rate provided by cost_recovery
+    provided fixed_costs <= cost_fixed provided by cost_recovery
+    cost_energy_A provided by cost_recovery >= cost_energy_A required by billing
+    cost_energy_B provided by cost_recovery >= cost_energy_B required by billing
+    revenue_A required by cost_recovery <= revenue_A provided by billing
+    revenue_B required by cost_recovery <= revenue_B provided by billing
 
-    # fixed cost allocations block
+    # practicality
+    required complexity >= complexity required by practicality
 
-    # tariff_structure block
-    # all defined above
+    # billing block
+    # all connected
 }
