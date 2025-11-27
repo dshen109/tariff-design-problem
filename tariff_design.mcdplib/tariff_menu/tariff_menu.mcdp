@@ -1,8 +1,0 @@
-dp {
-    provides tariff [`tariff]
-
-    requires complexity_A [dimensionless]
-    requires complexity_B [dimensionless]
-
-    implemented-by yaml resource("tariff_menu.dpc.yaml")
-}

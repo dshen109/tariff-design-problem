@@ -2,45 +2,34 @@ mcdp {
     provides recovery_rate [dimensionless]
     provides fixed_costs [USD]
     provides xsubsidy [USD]
-    provides disapproval [dimensionless]
 
     requires complexity [dimensionless]
 
-    perception = instance `perception
+    # perception = instance `perception
     cost_recovery = instance `cost_recovery
-    billing = instance `billing
-    tariff_menu = instance `tariff_menu
+    tariff = instance `tariff
     subsidy = instance `subsidy
     practicality = instance `practicality
 
-    # perception block
-    revenue_A required by perception <= revenue_A provided by billing
-    revenue_B required by perception <= revenue_B provided by billing
-    provided disapproval <= disapproval provided by perception
-
-    # tariff_menu block
-    tariff provided by tariff_menu >= tariff required by billing
-    complexity_A required by tariff_menu <= complexity_A provided by practicality
-    complexity_B required by tariff_menu <= complexity_B provided by practicality
+    # tariff block
+    complexity_A required by tariff <= complexity_A provided by practicality
+    complexity_B required by tariff <= complexity_B provided by practicality
 
     # subsidy block
-    provided xsubsidy <= xsubsidy provided by subsidy
+    xsubsidy provided by subsidy >= provided xsubsidy
     provided fixed_costs <= fixed_costs provided by subsidy
-    fixed_cost_frac provided by subsidy >= fixedfracA required by billing
-    purchase_cost provided by subsidy >= cost_energy_A required by billing
-    revenue required by subsidy <= revenue_A provided by billing
+    fixed_cost_frac provided by subsidy >= fixedfracA required by tariff
+    purchase_cost provided by subsidy >= cost_energy_A required by tariff
+    revenue required by subsidy <= revenue_A provided by tariff
 
     # cost recovery
     provided recovery_rate <= recovery_rate provided by cost_recovery
     provided fixed_costs <= cost_fixed provided by cost_recovery
-    cost_energy_A provided by cost_recovery >= cost_energy_A required by billing
-    cost_energy_B provided by cost_recovery >= cost_energy_B required by billing
-    revenue_A required by cost_recovery <= revenue_A provided by billing
-    revenue_B required by cost_recovery <= revenue_B provided by billing
+    cost_energy_A provided by cost_recovery >= cost_energy_A required by tariff
+    cost_energy_B provided by cost_recovery >= cost_energy_B required by tariff
+    revenue_A required by cost_recovery <= revenue_A provided by tariff
+    revenue_B required by cost_recovery <= revenue_B provided by tariff
 
     # practicality
     required complexity >= complexity required by practicality
-
-    # billing block
-    # all connected
 }

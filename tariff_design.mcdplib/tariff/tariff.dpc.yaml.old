@@ -1,0 +1,32 @@
+F:
+  - USD
+  - USD
+R:
+  - dimensionless
+  - dimensionless
+  - USD
+  - USD
+  - dimensionless
+implementations:
+  a0101010101_10_b0202020202_20:
+    f_max:
+      - 1 USD
+      - 1 USD
+    r_min:
+      - 1 dimensionless
+      - 1 dimensionless
+      - '`tariff: a0101010101_10_b0202020202_20'
+      - 1 USD
+      - 1 USD
+      - 1 dimensionless
+  a0101010101_10_b0202020202_30:
+    f_max:
+      - 1 USD
+      - 1 USD
+    r_min:
+      - 1 dimensionless
+      - 1 dimensionless
+      - '`tariff: a0101010101_10_b0202020202_20'
+      - 1 USD
+      - 1 USD
+      - 0.5 dimensionless

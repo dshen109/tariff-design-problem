@@ -1,0 +1,6 @@
+optimistic:
+  maximals: frozenset({(Decimal('Infinity'),)})
+  pretty: ↓{⟨∞⟩}
+pessimistic:
+  maximals: frozenset()
+  pretty: ↓{}
