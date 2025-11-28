@@ -7,5 +7,5 @@ mcdp {
     requires revenue_A [USD]
     requires revenue_B [USD]
 
-    provided recovery_rate * (provided cost_energy_A + provided cost_energy_B + provided cost_fixed) <= (required revenue_A + required revenue_B)
+    (1 + provided recovery_rate) * (provided cost_energy_A + provided cost_energy_B + provided cost_fixed) <= (required revenue_A + required revenue_B)
 }
