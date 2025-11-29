@@ -9,5 +9,6 @@ query:
     xsubsidy: -500 USD
   max_r:
     complexity: 3 dimensionless
+    co2_budget: 840000 g
   optimize_for:
   - recovery_rate

@@ -4,12 +4,14 @@ mcdp {
     provides xsubsidy [USD]
 
     requires complexity [dimensionless]
+    requires co2_budget [g]
 
     # perception = instance `perception
     cost_recovery = instance `cost_recovery
     tariff = instance `tariff
     subsidy = instance `subsidy
     practicality = instance `practicality
+    emissions = instance `emissions
 
     # tariff block
     complexity_A required by tariff <= complexity_A provided by practicality
@@ -32,4 +34,12 @@ mcdp {
 
     # practicality
     required complexity >= complexity required by practicality
+
+    # emissions
+    co2_budget required by emissions <= required co2_budget
+    h0 provided by emissions >= T0_kWh required by tariff
+    h1 provided by emissions >= T1_kWh required by tariff
+    h2 provided by emissions >= T2_kWh required by tariff
+    h3 provided by emissions >= T3_kWh required by tariff
+    h4 provided by emissions >= T4_kWh required by tariff
 }

@@ -7,6 +7,11 @@ dp {
     requires cost_energy_A [USD]
     requires cost_energy_B [USD]
     requires fixedfracA [dimensionless]
+    requires T0_kWh [kWh]
+    requires T1_kWh [kWh]
+    requires T2_kWh [kWh]
+    requires T3_kWh [kWh]
+    requires T4_kWh [kWh]
 
     implemented-by yaml resource("tariff.dpc.yaml")
 }
