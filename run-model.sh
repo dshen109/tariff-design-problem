@@ -1,2 +1,5 @@
 # rm -r out-query || true
-mcdp-solve-query tariff_query_fun --optimistic 100 --pessimistic 100
+mcdp-solve-query  --optimistic 20 --pessimistic 20 tariff_query_fun --imp
+
+# mcdp-check-circle   mcdp-eval           mcdp-load-all       mcdp-render         mcdp-solve          mcookie
+# mcdp-depgraph       mcdp-export         mcdp-plot           mcdp-render-manual  mcdp-solve-query

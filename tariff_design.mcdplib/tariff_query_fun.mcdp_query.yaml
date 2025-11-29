@@ -5,8 +5,8 @@ query:
   query_type: FixResMaxFun
   min_f:
     recovery_rate: 0.01 dimensionless
-    fixed_costs: 20000 USD
-    xsubsidy: -50 USD
+    fixed_costs: 8000 USD
+    xsubsidy: -500 USD
   max_r:
     complexity: 3 dimensionless
   optimize_for:
