@@ -57,8 +57,8 @@ referred to as a time of use (TOU) rate and consists of pre-determined blocks
 of times and electricity prices during the day. An example of a TOU structure
 is shown below:
 
-![alt text](figures/tou-explainer.png) (from
-https://www.greenconvergence.com/blog/what-is-time-of-use)
+![alt text](figures/tou-explainer.png)
+(from https://www.greenconvergence.com/blog/what-is-time-of-use)
 
 Time of use rates incentivize more efficient consumption, since the price
 during each block can more closely reflect the wholesale marginal cost of
