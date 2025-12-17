@@ -1,0 +1,33 @@
+mcdp {
+    provides profit [USD]
+    provides approval [dimensionless]
+
+    requires carbon_credit_budget [USD]
+    requires max_bill [USD]
+
+    perception = instance `perception
+    tariff = instance `tariff
+    co2_market = instance `co2_market
+    co2_impact = instance `co2_impact
+
+    # perception block
+    approval provided by perception >= provided approval
+    emissions provided by perception >= net_emissions required by co2_impact
+    monthly_bill provided by perception >= bill required by tariff
+    simplicity required by perception <= simplicity provided by tariff
+
+    # tariff block
+    provided profit <= profit provided by tariff
+    required max_bill >= bill required by tariff
+    peak_consumption required by tariff <= peak_consumption provided by co2_impact
+    offpeak_consumption required by tariff <= offpeak_consumption provided by co2_impact
+
+    # co2 market
+    required carbon_credit_budget >= budget required by co2_market
+    peak_credits provided by co2_market >= peak_credits required by co2_impact
+    offpeak_credits provided by co2_market >= offpeak_credits required by co2_impact
+
+    # co2 impact
+    # all connected
+
+}

@@ -1,0 +1,10 @@
+dp {
+    provides simplicity [dimensionless]
+    provides profit [USD]
+
+    requires peak_consumption [kWh]
+    requires offpeak_consumption [kWh]
+    requires bill [USD]
+
+    implemented-by yaml resource("tariff.dpc.yaml")
+}

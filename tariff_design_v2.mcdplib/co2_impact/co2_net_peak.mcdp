@@ -1,0 +1,9 @@
+mcdp {
+    provides consumed [kWh]
+    constant intensity = 200 [g/kWh]
+
+    requires offset [g]
+    requires resulting [g]
+
+    provided consumed * intensity <= required offset + required resulting
+}

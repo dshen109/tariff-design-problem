@@ -1,0 +1,13 @@
+title: tariff_query_fun_v2
+description: Query the whole dp for best approval and best profit v2
+model: '`tariff_design'
+query:
+  query_type: FixResMaxFun
+  min_f:
+    profit: 30 USD
+    approval: 40 dimensionless
+  max_r:
+    carbon_credit_budget: 0.05 USD
+    max_bill: 70 USD
+  optimize_for:
+    - approval

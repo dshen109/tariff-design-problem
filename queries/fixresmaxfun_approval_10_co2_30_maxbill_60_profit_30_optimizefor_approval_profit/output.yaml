@@ -1,0 +1,10 @@
+optimistic:
+  maximals: frozenset()
+  pretty: ↓{}
+  imps:
+    pretty: ↓{}
+pessimistic:
+  maximals: frozenset()
+  pretty: ↓{}
+  imps:
+    pretty: ↓{}

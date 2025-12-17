@@ -1,0 +1,16 @@
+mcdp {
+    provides approval [dimensionless]
+    provides emissions [g]
+    provides monthly_bill [USD]
+
+    # Restricts how complex the tariff can be.
+    requires simplicity [dimensionless]
+
+    constant disapproval_per_co2 = 0.001 [dimensionless/g]
+    co2_disapproval = disapproval_per_co2 * provided emissions
+
+    disapproval_per_dollar = 0.5 [dimensionless/USD]
+    bill_disapproval = disapproval_per_dollar * provided monthly_bill
+
+    provided approval + co2_disapproval + bill_disapproval <= required simplicity
+}

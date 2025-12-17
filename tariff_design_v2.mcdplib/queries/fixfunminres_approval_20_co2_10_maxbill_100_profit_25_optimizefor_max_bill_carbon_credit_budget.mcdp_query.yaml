@@ -1,0 +1,14 @@
+description: ''
+model: '`tariff_design'
+query:
+  max_r:
+    carbon_credit_budget: 10 USD
+    max_bill: 100 USD
+  min_f:
+    approval: 20 dimensionless
+    profit: 10 USD
+  optimize_for:
+  - max_bill
+  - carbon_credit_budget
+  query_type: FixFunMinRes
+title: fixfunminres_approval_20_co2_10_maxbill_100_profit_25_optimizefor_max_bill_carbon_credit_budget

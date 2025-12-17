@@ -1,0 +1,12 @@
+mcdp {
+    requires budget [$]
+
+    provides peak_credits [g]
+    provides offpeak_credits [g]
+
+    # Somewhat close to direct air capture costs.
+    constant peak_price = 0.0005 [$/g]
+    constant offpeak_price = 0.0005 [$/g]
+
+    provided peak_credits * peak_price + provided offpeak_credits * offpeak_price <= required budget
+}

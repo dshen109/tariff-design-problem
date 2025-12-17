@@ -1,0 +1,19 @@
+mcdp {
+    provides peak_consumption [kWh]
+    provides offpeak_consumption [kWh]
+
+    requires peak_credits [g]
+    requires offpeak_credits [g]
+    requires net_emissions [g]
+
+    peak = instance `co2_net_peak
+    offpeak = instance `co2_net_offpeak
+
+    consumed provided by peak >= provided peak_consumption
+    consumed provided by offpeak >= provided offpeak_consumption
+
+    offset required by peak <= required peak_credits
+    offset required by offpeak <= required offpeak_credits
+
+    required net_emissions >= resulting required by offpeak + resulting required by peak
+}
